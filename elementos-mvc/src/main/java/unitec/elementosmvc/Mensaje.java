@@ -20,8 +20,7 @@ public class Mensaje {
     private LocalDate fecha;
     private String cuerpo;
 
-    public Mensaje(LocalDate fecha, String cuerpo) {
-        this.fecha = fecha;
+    public Mensaje(String cuerpo) {
         this.cuerpo = cuerpo;
     }
 
@@ -31,10 +30,20 @@ public class Mensaje {
         this.cuerpo = cuerpo;
     }
 
-  //constructor de defecto  
     public Mensaje() {
     }
 
+    public Mensaje(LocalDate fecha, String cuerpo) {
+        this.fecha = fecha;
+        this.cuerpo = cuerpo;
+    }
+
+    @Override
+    public String toString() {
+        return "Mensaje{" + "id=" + id + ", fecha=" + fecha + ", cuerpo=" + cuerpo + '}';
+    }
+
+    
     public String getId() {
         return id;
     }
@@ -49,11 +58,6 @@ public class Mensaje {
 
     public void setCuerpo(String cuerpo) {
         this.cuerpo = cuerpo;
-    }
-
-    @Override
-    public String toString() {
-        return "Mensaje{" + "id=" + id + ", fecha=" + fecha + ", cuerpo=" + cuerpo + '}';
     }
     
     
