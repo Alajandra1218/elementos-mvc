@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,6 +53,22 @@ public class ControladorMensaje {
         System.out.println("este objeto se convirtio: "+mensa);
         Estatus estatus=new Estatus();
         estatus.setMensaje("Mensaje guardado con exito");
+        return estatus;
+    }
+    @PutMapping("/mensaje")
+    
+    public Estatus actualizar(@RequestBody String json) throws Exception
+    {
+        //Primero convertimos este String Json a un objeto java 
+        ObjectMapper maper=new ObjectMapper();
+       Mensaje mensa= maper.readValue(json,Mensaje.class);
+       //guardar
+         repoMensa.save(mensa);
+       System.out.println("este objeto se convirtio: "+mensa);
+        
+        Estatus estatus=new Estatus();
+        estatus.setSucess(true);
+        estatus.setMensaje("Mensaje  actualizado con exito");
         return estatus;
     }
 }

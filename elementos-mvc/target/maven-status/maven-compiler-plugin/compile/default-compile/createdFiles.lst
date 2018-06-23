@@ -1,4 +1,5 @@
 unitec\elementosmvc\Debito.class
+unitec\elementosmvc\Estatus.class
 unitec\elementosmvc\Nomina.class
 unitec\elementosmvc\Mensaje.class
 unitec\elementosmvc\ControladorMensaje.class
