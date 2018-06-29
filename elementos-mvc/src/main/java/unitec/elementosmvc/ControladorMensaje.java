@@ -71,4 +71,19 @@ public class ControladorMensaje {
         estatus.setMensaje("Mensaje  actualizado con exito");
         return estatus;
     }
+     @DeleteMapping("/mensaje/{id}")
+
+    public Estatus borrarPorId(@PathVariable String id) throws Exception
+    {
+        Mensaje mensj=  new Mensaje(); //mensa
+        
+        repoMensa.deleteById(id);
+        Estatus e = new Estatus();
+        
+        e.setSuccess(true);
+        e.setMensaje("Mensaje Borrado Con Éxito");
+
+        
+        return e;
+    }
 }
